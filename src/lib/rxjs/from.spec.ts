@@ -82,7 +82,7 @@ describe('from:', () => {
     source$.subscribe(observer);
   });
 
-  xit('should converts an promise to an Observable', (done) => {
+  it('should converts an promise to an Observable', (done) => {
     const actual = 'Hello World!';
     const promise: Promise<string> = new Promise((resolve) => resolve(actual));
     const source$ = from(promise);

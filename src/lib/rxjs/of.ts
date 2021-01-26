@@ -3,5 +3,15 @@ import { IObserver } from './observer';
 import { Subscription } from './subscription';
 
 export function of<T>(...args: T[]): Observable<T> {
-  return null;
+
+  function ofProducer(observer: IObserver): Subscription {
+    args.forEach((arg: any) => observer.next(arg));
+    observer.complete();
+
+    return <Subscription>{
+      unsubscribe() {}
+    }
+  }
+
+  return new Observable<T>(ofProducer);
 }

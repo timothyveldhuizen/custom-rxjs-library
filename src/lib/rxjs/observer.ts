@@ -4,12 +4,12 @@ export interface IObserver<T = any, U = any> {
   complete: () => void;
 }
 
-export const observer = (
-  next?: (value: any) => void,
-  error?: (err: any) => void,
-  complete?: () => void
-): IObserver => ({
-  next,
-  error,
-  complete,
-});
+// export const observer = (
+//   next?: (value: any) => void,
+//   error?: (err: any) => void,
+//   complete?: () => void
+// ): IObserver => ({
+//   next,
+//   error,
+//   complete,
+// });
