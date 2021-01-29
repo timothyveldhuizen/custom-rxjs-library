@@ -1,5 +1,6 @@
 import { Subscription } from './subscription';
 import { IObserver } from './observer';
+import { Operator } from './operator';
 export class Observable<T> {
   constructor(private producer) {}
 
@@ -11,9 +12,7 @@ export class Observable<T> {
     return this.producer(observer);
   }
 
-  pipe(...operations: any[]): Observable<T> {
-    return operations.reduce((result: any, currentOperator: any) => {
-      return currentOperator(result);
-    })
+  pipe(...operations: Operator<any, any>[]): Observable<any> {
+    return operations.reduce((result: Observable<any>, currentOperator: Operator<any, any>) => currentOperator(result), this)
   }
 }

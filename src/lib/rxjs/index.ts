@@ -4,3 +4,4 @@ export * from './fromPromise';
 export * from './of';
 export * from './observer';
 export * from './subscription';
+export * from './operator';
