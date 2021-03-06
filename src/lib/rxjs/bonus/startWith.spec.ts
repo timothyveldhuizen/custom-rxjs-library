@@ -1,7 +1,8 @@
 import { Observable } from '../observable';
 import { from } from '../from';
+import { startWith } from './startWith';
 
-xdescribe('startWith :', () => {
+describe('startWith :', () => {
     it('should start with on number sequence', (done) => {
         const source$: Observable<number> = from([1, 2, 3, 4, 5]).pipe(startWith(0));
         let result: number[] = [];
